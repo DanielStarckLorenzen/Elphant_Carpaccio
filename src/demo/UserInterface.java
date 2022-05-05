@@ -7,11 +7,25 @@ public class UserInterface {
     private int amount;
     private String state;
     private final double UTAH = 1.0685;
+    private boolean buyMore;
 
     Scanner in = new Scanner(System.in);
 
     public void intro() {
         System.out.println("Welcome to the ultimate web-shop, where the limit is your imagination!");
+    }
+    public boolean keepBuying() {
+        System.out.println("Do you want to buy more?");
+        in.nextLine();
+        String answer = in.nextLine().toLowerCase();
+        switch(answer) {
+            case "yes", "y" -> {
+                return true;
+            }
+            default -> {
+                return false;
+            }
+        }
     }
 
     public void goodsAmount() {
@@ -30,7 +44,8 @@ public class UserInterface {
         return price * amount * UTAH;
     }
     public double calculateTotalBeforeTax() {
-        return price * amount;
+        totalPriceBeforeTax += price * amount;
+        return totalPriceBeforeTax;
     }
     public void printTotal(){
         System.out.println("total price before tax: " + calculateTotalBeforeTax());
