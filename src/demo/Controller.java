@@ -1,21 +1,22 @@
 package demo;
 
 public class Controller {
-    public void go(){
+    public void go() {
         boolean running = true;
         UserInterface ui = new UserInterface();
         ui.intro();
-        while(running){
-            ui.goodsAmount();
+        while (running) {
             ui.goodsPrice();
+            ui.goodsAmount();
+            running = ui.keepBuying();
+            ui.calculateTotalBeforeTax();
             ui.calculateTotalAfterTax();
-            ui.printTotal();
-            running = false;
         }
+        ui.printTotal();
 
     }
 
     public static void main(String[] args) {
-    new Controller().go();
-        }
+        new Controller().go();
+    }
 }

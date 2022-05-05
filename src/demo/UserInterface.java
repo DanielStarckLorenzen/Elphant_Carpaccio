@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class UserInterface {
     private double price;
     private int amount;
+    private double totalPrice;
+    private double totalPriceBeforeTax;
     private String state;
     private final double UTAH = 1.0685;
     private boolean buyMore;
@@ -41,14 +43,15 @@ public class UserInterface {
         state = in.nextLine();
     }
     public double calculateTotalAfterTax(){
-        return price * amount * UTAH;
+        totalPrice += price * amount * UTAH;
+        return totalPrice;
     }
     public double calculateTotalBeforeTax() {
         totalPriceBeforeTax += price * amount;
         return totalPriceBeforeTax;
     }
     public void printTotal(){
-        System.out.println("total price before tax: " + calculateTotalBeforeTax());
-        System.out.println("total price after tax:  " + calculateTotalAfterTax());
+        System.out.println("total price before tax: " + totalPriceBeforeTax);
+        System.out.println("total price after tax:  " + totalPrice);
     }
 }
