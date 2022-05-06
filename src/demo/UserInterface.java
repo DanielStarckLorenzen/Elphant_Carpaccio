@@ -51,7 +51,7 @@ public class UserInterface {
         return totalPriceBeforeTax;
     }
     public void printTotal(){
-        System.out.println("total price before tax: " + totalPriceBeforeTax);
-        System.out.println("total price after tax:  " + totalPrice);
+        System.out.println("total price before tax: $" + totalPriceBeforeTax);
+        System.out.println("total price after tax:  $" + totalPrice);
     }
 }
