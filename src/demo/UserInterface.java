@@ -1,5 +1,6 @@
 package demo;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -30,13 +31,23 @@ public class UserInterface {
         }
     }
 
-    public void goodsAmount() {
-        System.out.println("How many of items do you want to buy?");
-        amount = in.nextInt();
+    public void goodsAmount() throws InputMismatchException{
+        try {
+            System.out.println("How many of items do you want to buy?");
+            amount = in.nextInt();
+        }
+        catch (InputMismatchException ime){
+            System.out.println("Not a valid number. Try again: ");
+        }
     }
-    public void goodsPrice(){
-        System.out.println("What is the price of your item? ");
-        price = in.nextDouble();
+    public void goodsPrice() throws InputMismatchException {
+        try {
+            System.out.println("What is the price of your item? ");
+            price = in.nextDouble();
+        }
+        catch(InputMismatchException ime) {
+            System.out.println("Please enter a valid number: ");
+        }
     }
     public void stateChoice() {
         System.out.println("Which state do you have residence in?");
