@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UserInterface {
+    private boolean stateRetry = true;
     private double price;
     private int amount;
     private double totalPrice;
@@ -50,15 +51,21 @@ public class UserInterface {
         }
     }
     public void stateChoice() {
-        System.out.println("Which state do you have residence in?");
-        state = in.nextLine();
-        switch (state){
-            case "ut", "UT", "Utah" -> tax = 1.0685;
-            case "nv", "NV", "Nevada" -> tax = 1.08;
-            case "tx", "TX", "Texas" -> tax = 1.0625;
-            case "al", "AL", "Alabama" -> tax = 1.04;
-            case "ca", "CA", "California" -> tax = 1.0825;
-            default -> System.out.println("That's not a state in our system");
+        while (stateRetry) {
+            stateRetry = false;
+            System.out.println("Which state do you have residence in?");
+            state = in.nextLine();
+            switch (state) {
+                case "ut", "UT", "Utah" -> tax = 1.0685;
+                case "nv", "NV", "Nevada" -> tax = 1.08;
+                case "tx", "TX", "Texas" -> tax = 1.0625;
+                case "al", "AL", "Alabama" -> tax = 1.04;
+                case "ca", "CA", "California" -> tax = 1.0825;
+                default -> {
+                    System.out.println("That's not a state in our system");
+                    stateRetry = true;
+                }
+            }
         }
     }
     public double calculateTotalAfterTax(){
