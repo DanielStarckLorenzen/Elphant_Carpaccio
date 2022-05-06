@@ -15,5 +15,6 @@ public class Controller {
         }
         ui.printTotal();
 
+        
     }
 }
