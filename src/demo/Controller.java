@@ -5,6 +5,7 @@ public class Controller {
         boolean running = true;
         UserInterface ui = new UserInterface();
         ui.intro();
+        ui.stateChoice();
         while (running) {
             ui.goodsPrice();
             ui.goodsAmount();
